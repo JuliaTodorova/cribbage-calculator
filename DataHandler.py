@@ -1,9 +1,11 @@
 import csv
 import Players
+import Card
 
 
 class DataHandler:
-    def getCSVData(self, csvFile):
+    # Get CSV game data
+    def get_csv_data(self, csvFile):
         data = []
 
         with open(csvFile, "r") as file:
@@ -13,29 +15,41 @@ class DataHandler:
 
         return data
 
-    def organizeData(self, file):
+    # Extract the suit from cards
+    def extract_cards(self, cards):
+        allCards = []
+        card = cards.split(',')
+        for x in card:
+            value = x.split('-')[0]
+            suit = x.split('-')[1]
+            one_card = Card.Card(
+                    value,
+                    suit
+            )
+            allCards.append(one_card)
+
+        return allCards
+
+    # Create new player objects for each player
+    def organize_data(self, file):
         # remove headers
         file.pop(0)
 
-        allPlayers = []
+        all_players = []
         for x in file:
+
+            player = x[0]
+            cards = x[1]
+            crib = x[2]
+            score = x[3]
+
             player = Players.Players(
-                x[0],
-                x[1],
-                x[2],
-                x[3]
+                player,
+                cards,
+                crib,
+                score
             )
-            allPlayers.append(player)
 
-        for x in allPlayers:
-            print(x.print_player())
-        return allPlayers
+            all_players.append(player)
 
-
-if __name__ == "__main__":
-    handler = DataHandler()
-    test = handler.getCSVData("cribGame.csv")
-
-    orgData = handler.organizeData(test)
-
-    #print(orgData)
+        return all_players

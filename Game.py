@@ -1,10 +1,23 @@
+import DataHandler
+import Players
+import Hand
+import Calculator
+
+
 class Game:
 
-    def __init__(self, player):
-        self._player = player
+    def play():
 
-    def get_player(self):
-        return self._player
+        handler = DataHandler.DataHandler()
+        file = handler.get_csv_data("cribGame.csv")
+        data = handler.organize_data(file)
 
-    def set_player(self, player):
-        self._player = player
+        cards = []
+
+        for player in data:
+            card = player.get_cards()
+            cards.append(handler.extract_cards(card))
+
+if __name__ == "__main__":
+
+    Game.play()

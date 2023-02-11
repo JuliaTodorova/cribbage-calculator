@@ -11,7 +11,6 @@ class Players:
         self._crib = crib
         self._score = score
 
-
     def get_score(self):
         return self._score
 
@@ -45,5 +44,5 @@ class Players:
     def print_player(self):
         return f" score {self._score}, " \
                f"player {self._player}," \
-               f"crib {self._crib},"\
+               f"crib {self._crib}," \
                f"cards {self._cards}"
