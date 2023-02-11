@@ -1,11 +1,11 @@
 class Hand:
 
-    def __init__(self, cards, values, suit, colour):
+    def __init__(self, cards, values, suit, player):
 
         self._cards = cards
         self._values = values
         self._suit = suit
-        self._colour = colour
+        self._player = player
 
     def get_cards(self):
         return self._cards
@@ -25,8 +25,8 @@ class Hand:
     def set_suit(self, suit):
         self._suit = suit
 
-    def get_colour(self):
-        return self._suit
+    def get_player(self):
+        return self._player
 
-    def set_colour(self, suit):
-        self._suit = suit
+    def set_player(self, player):
+        self._player = player
