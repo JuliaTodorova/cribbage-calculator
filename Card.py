@@ -2,7 +2,7 @@ class Card:
 
     def __init__(self,
                  value,
-                 suit
+                 suit,
                  ):
         self._value = value
         self._suit = suit
@@ -18,6 +18,12 @@ class Card:
 
     def set_suit(self, suit):
         self._value = suit
+
+    def get_player(self):
+        return self._player
+
+    def set_player(self, player):
+        self._player = player
 
     def print_card(self):
         return f" value {self._value}, " \

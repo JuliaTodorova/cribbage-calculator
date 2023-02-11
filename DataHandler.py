@@ -37,7 +37,6 @@ class DataHandler:
 
         all_players = []
         for x in file:
-
             player = x[0]
             cards = x[1]
             crib = x[2]
