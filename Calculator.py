@@ -1,5 +1,5 @@
 import itertools
-
+from collections import Counter
 
 class Calculator:
     handSuit = {
@@ -59,12 +59,18 @@ class Calculator:
         print(1)
 
     # 2 points per pair
-    def calc_pairs(self, cards):
-        print(1)
-
-    # 1 point if in hand 2 points if on turn
-    def calc_jack_suit(self, cards):
-        print(1)
+    def calc_pairs(self, players):
+        all_cards = []
+        for x in players:
+            for i in x.values():
+                cards = []
+                all_cards.append(cards)
+                for p in i:
+                    cards.append(p.get_value())
+        count_pairs = []
+        for card in all_cards:
+            count_pairs.append(Counter(card))
+        return count_pairs
 
     def add_points(self):
         print(1)
