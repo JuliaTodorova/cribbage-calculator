@@ -2,6 +2,8 @@ import DataHandler
 import Players
 import Hand
 import Calculator
+import itertools
+import numbers
 
 
 class Game:
@@ -12,7 +14,7 @@ class Game:
         data = handler.organize_data(file)
 
         players = []
-
+        # Get player and card objects
         for player in data:
             cards = player.get_cards()
             cList = handler.extract_cards(cards)
@@ -21,9 +23,6 @@ class Game:
             }
 
             players.append(player_cards)
-
-        print(players)
-
 
 if __name__ == "__main__":
     Game.play()
