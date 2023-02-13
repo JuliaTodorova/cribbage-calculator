@@ -2,13 +2,6 @@ import itertools
 from collections import Counter
 
 class Calculator:
-    handSuit = {
-        "s": "spade",
-        "d": "diamond",
-        "h": "heart",
-        "c": "club"
-    }
-
     # transform data to be calculated
     def transform_data(self, players):
         calc_job = []
